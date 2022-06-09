@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "table-box": "/Components/table-box/table-box",
+    "van-card": "@vant/weapp/card/index"
+  },
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#40a7e7"
+}

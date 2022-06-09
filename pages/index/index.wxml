@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<scroll-view class="bodys" scroll-y>
+  <view class="header-search flexBox">
+    <text class="iconfont icon-31sousuo"></text>
+    <input class="header-ipt" type="text" placeholder-class="ipt-sty" placeholder="请输入城市名，快速查询天气信息" bind:change="searchChange" />
+  </view>
+
+  <!-- 用户信息 -->
+  <view class="user flexBox" bindtap="getUserInfo">
+    <view class="user-img">
+      <image mode="widthFix" src="{{userImg}}"></image>
+    </view>
+    <view class="user-name">{{userName}}</view>
+  </view>
+  <view class="weather-info">
+    <!-- 地址 -->
+    <view class="address flexBox">
+      <view class="address-name">
+        <text class="iconfont icon-weizhi"></text>
+        {{address}}
+      </view>
+      <view class="weather-time">{{weatherTime}}</view>
+    </view>
+    <!-- 温度 -->
+    <view class="weather-temperature">
+      <view class="temperature">{{temperature}}</view>
+      <view class="situation">{{situation}}</view>
+      <view class="visibility">能见度 {{ visibility}}</view>
+    </view>
+  </view>
+  <!-- 七天预报 -->
+  <view class="sevenDay table-info">
+    <view class="table-title">七天预报</view>
+    <view class="sevenDay-weather">
+      <scroll-view class="sevenDay-box" scroll-x>
+        <view class="sevenDay-list" wx:for="{{sevenWeather}}" wx:key="time">
+          <view class="sevenDay-time">{{item.time}}</view>
+          <view class="sevenDay-temperature">{{item.temperature}}</view>
+          <view class="sevenDay-situation">{{item.textDay}}
+            <image src="/node_modules/qweather-icons/icons/{{item.iconDay}}.svg" class="iconsvg" alt="QWeather" width="32" height="32"></image>
+          </view>
+          <view class="sevenDay-wind">{{item.wind}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 其他天气信息 -->
+  <view class="table-info other-info ">
+    <table-box otherInfo="{{otherInfo}}"></table-box>
+  </view>
+
+  <!-- 24小时逐3小时预报 -->
+  <view class="table-info hour-info ">
+    <view class="table-title">24小时逐3小时预报</view>
+    <scroll-view class="hour-weather-box" scroll-x="{{true}}">
+      <block wx:for="{{hourWeather}}" wx:key="time">
+        <view class="hour-weather-list">
+          <view class="hour-weather">
+            <table-box otherInfo="{{item.temp}}"></table-box>
+          </view>
+          <view class="hour-time">{{item.time}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 生活指数 -->
+  <view class="table-info">
+    <view class="table-title">生活指数</view>
+    <block wx:for="{{life}}" wx:key="type">
+      <view class="life-list">
+      <view class="life-img">
+        <image mode="widthFix" src="/image/{{index}}.png"></image>
+      </view>
+      <view class="life-info">
+        <view class="life-title">{{item.title}}</view>
+        <view class="life-text">{{item.text}}</view>
+      </view>
+    </view>
+    </block>
+  </view>
+  <view class="footer">FengyunWeather</view>
+</scroll-view>

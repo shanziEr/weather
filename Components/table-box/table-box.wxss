@@ -1,0 +1,28 @@
+/* Components/table-box/table-box.wxss */
+.table-box{
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.other-info-list{
+  box-sizing: border-box;
+  width: calc(25% - 2rpx);
+  height: 110rpx;
+  line-height: 55rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #fff;
+  border-right: 1rpx solid #999;
+  border-top: 1rpx solid #999;
+  border-bottom: 1rpx solid #999;
+}
+.other-info-list:nth-child(-n+4){
+  border-top: none;
+}
+.other-info-list:nth-child(n+4){
+  border-bottom: none;
+}
+.other-info-list:nth-child(4n){
+  border-right: none;
+}

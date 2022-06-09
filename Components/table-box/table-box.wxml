@@ -1,0 +1,10 @@
+<!--Components/table-box/table-box.wxml-->
+<view class="table-box">
+  <view class="other-info-list" wx:for="{{otherInfo}}" wx:key="*this">
+      <view class="info-name">{{item.name}}</view>
+      <view class="info-count">{{item.info}}</view>
+    </view>
+    <view class="other-info-list">
+    
+    </view>
+  </view>
